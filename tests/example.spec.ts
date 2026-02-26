@@ -8,3 +8,11 @@ test('has title', async ({ page }) => {
 });
 
 
+  ///..
+  test('should have a specific element', async ({ page }) => {
+    await page.goto('https://playwright.dev/');
+
+    // Expect an element to be visible.
+    const element = page.locator('text=Get Started');
+    await expect(element).toBeVisible();
+})
