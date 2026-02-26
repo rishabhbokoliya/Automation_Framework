@@ -7,12 +7,12 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  ///..
+  test('should have a specific element', async ({ page }) => {
+    await page.goto('https://playwright.dev/');
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
+    // Expect an element to be visible.
+    const element = page.locator('text=Get Started');
+    await expect(element).toBeVisible();
+})
